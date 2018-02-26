@@ -1,4 +1,4 @@
-package com.fdd.zte.lms.lms;
+package com.fdd.lms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

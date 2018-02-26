@@ -1,4 +1,4 @@
-package com.fdd.zte.lms.lms.Model;
+package com.fdd.lms.Model;
 /**
  * @author Lin.wang
  * @date 2018-02-26 21:59.

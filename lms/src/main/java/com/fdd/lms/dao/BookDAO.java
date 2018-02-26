@@ -1,10 +1,10 @@
-package com.fdd.zte.lms.lms.dao;
+package com.fdd.lms.dao;
 /**
  * @author Lin.wang
  * @date 2018-02-26 21:59.
  */
 
-import com.fdd.zte.lms.lms.Model.Book;
+import com.fdd.lms.Model.Book;
 import org.apache.ibatis.annotations.*;
 import java.util.List;
 

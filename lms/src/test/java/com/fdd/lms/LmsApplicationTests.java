@@ -1,4 +1,4 @@
-package com.fdd.zte.lms.lms;
+package com.fdd.lms;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

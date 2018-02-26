@@ -1,10 +1,10 @@
-package com.fdd.zte.lms.lms.controller;
+package com.fdd.lms.controller;
 /**
  * @author Lin.wang
  * @date 2018-02-26 21:59.
  */
 
-import com.fdd.zte.lms.lms.service.BookService;
+import com.fdd.lms.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

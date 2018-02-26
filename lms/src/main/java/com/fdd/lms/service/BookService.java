@@ -1,10 +1,10 @@
-package com.fdd.zte.lms.lms.service;
+package com.fdd.lms.service;
 /**
  * @author Lin.wang
  * @date 2018-02-26 21:59.
  */
-import com.fdd.zte.lms.lms.Model.Book;
-import com.fdd.zte.lms.lms.dao.BookDAO;
+import com.fdd.lms.Model.Book;
+import com.fdd.lms.dao.BookDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
