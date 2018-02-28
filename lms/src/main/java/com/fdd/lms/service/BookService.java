@@ -15,12 +15,20 @@ public class BookService {
     @Autowired
     private BookDAO bookDAO;
 
-    public Book getBook(int id) {
+    public Book getBookById(int id) {
         return bookDAO.selectById(id);
     }
 
     public List<Book> getAllBook(){
         return bookDAO.selectAll();
+    }
+
+    public void addBook(Book book){
+        bookDAO.insertBook(book);
+    }
+
+    public void updateBook(Book book){
+        bookDAO.updateBook(book);
     }
 
 }
