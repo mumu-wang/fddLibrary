@@ -20,7 +20,7 @@ public interface BookDAO {
     int insertBook(Book book);
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where book_id=#{id}"})
-    Book selectById(int id);
+    Book selectBookById(int id);
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME})
     List<Book> selectAll();

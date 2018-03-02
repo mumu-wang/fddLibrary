@@ -12,7 +12,7 @@
     <body>
         <div class="contentDiv">
 
-            <h4>FDD西安开发部图书管理系统</h4><br/>
+            <h4>FDD西安开发部图书管</h4><br/>
 
             <legend>
                 <strong>添加图书</strong>
@@ -23,42 +23,42 @@
                 <div class="form-group">
                     <label for="book_id" class="col-sm-2 control-label">图书编号:</label>
                     <div class="col-xs-4">
-                        <input type="text" class="form-control" id="book_id" name="bookId" th:value="${book.bookId}" />
+                        <input type="text" class="form-control" id="book_id" name="bookId" th:value="${book.bookId}" required="required" />
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="book_name" class="col-sm-2 control-label">书名:</label>
                     <div class="col-xs-4">
-                        <input type="text" class="form-control" id="book_name" name="bookName" th:value="${book.bookName}" />
+                        <input type="text" class="form-control" id="book_name" name="bookName" th:value="${book.bookName}"  required="required" />
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="book_ISBN" class="col-sm-2 control-label">ISBN:</label>
                     <div class="col-xs-4">
-                        <input type="text" class="form-control" id="book_ISBN" name="bookIsbn" th:value="${book.bookIsbn}"/>
+                        <input type="text" class="form-control" id="book_ISBN" name="bookIsbn" th:value="${book.bookIsbn}"  required="required"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="book_catagory" class="col-sm-2 control-label">分类:</label>
                     <div class="col-xs-4">
-                        <input type="text" class="form-control" id="book_catagory" name="bookCg" th:value="${book.bookCg}"/>
+                        <input type="text" class="form-control" id="book_catagory" name="bookCg" th:value="${book.bookCg}"  required="required"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="book_position" class="col-sm-2 control-label">位置:</label>
                     <div class="col-xs-4">
-                        <input type="text" class="form-control" id="book_position" name="bookPos" th:value="${book.bookPos}"/>
+                        <input type="text" class="form-control" id="book_position" name="bookPos" th:value="${book.bookPos}"  required="required"/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="book_press" class="col-sm-2 control-label">出版社:</label>
                     <div class="col-xs-4">
-                        <input type="text" class="form-control" id="book_press" name="bookPre" th:value="${book.bookPre}"/>
+                        <input type="text" class="form-control" id="book_press" name="bookPre" th:value="${book.bookPre}"  required="required"/>
                     </div>
                 </div>
 

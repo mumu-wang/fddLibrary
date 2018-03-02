@@ -16,7 +16,7 @@ public class BookService {
     private BookDAO bookDAO;
 
     public Book getBookById(int id) {
-        return bookDAO.selectById(id);
+        return bookDAO.selectBookById(id);
     }
 
     public List<Book> getAllBook(){

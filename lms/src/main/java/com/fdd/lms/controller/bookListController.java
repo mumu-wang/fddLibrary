@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping(value = "/books")
-public class bookListController {
+public class BookListController {
 
     @Autowired
     BookService bookService;
@@ -37,7 +37,7 @@ public class bookListController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String addBookList(@ModelAttribute Book book) {
         bookService.addBook(book);
-        return "redirect:/books";
+        return "redirect:/";
     }
 
 
@@ -52,7 +52,7 @@ public class bookListController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String putUser(@ModelAttribute Book book) {
         bookService.updateBook(book);
-        return "redirect:/books";
+        return "redirect:/";
     }
 
 
