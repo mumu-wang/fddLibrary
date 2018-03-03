@@ -13,19 +13,13 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface LoanDAO {
 
-    String TABLE_NAME = " loanrelation ";
+    String TABLE_LOAN = "loanrelation";
+    String TABLE_BOOK = "bookinfo";
     String INSET_FIELDS = " loan_time, book_id, user_id, return_time ";
-    String SELECT_FIELDS =" loan_time, book_id, user_id, return_time ";
-    @Insert({"insert into ", TABLE_NAME, "(", INSET_FIELDS,
+    String SELECT_FIELDS =" loanrelation.loan_time, loanrelation.book_id, loanrelation.user_id, loanrelation.return_time ";
+
+    @Insert({"insert into ", TABLE_LOAN, "(", INSET_FIELDS,
             ") values (#{loanTime},#{bookId},#{userId},#{loanTime})"})
     int insertLoan(Loan loan);
-
-    @Select({"select ",SELECT_FIELDS, "from",TABLE_NAME,
-    " where book_id = #{bookId} and return_status = 0"})
-    Loan selectLoanBookStatus(int bookId);
-
-    @Update({"update ", TABLE_NAME, " set return_status = 1 where book_id=#{bookId}"})
-    void returnBookById(int bookId);
-
 
 }

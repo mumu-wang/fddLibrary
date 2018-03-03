@@ -1,8 +1,6 @@
 package com.fdd.lms.Model;
 
 
-import java.util.Date;
-
 /**
  * @author Lin.wang
  * @date 2018-03-02 19:33.
@@ -10,9 +8,9 @@ import java.util.Date;
 public class Loan {
     private String loanTime;
     private int bookId;
-    private int userId;
-    private Date returnTime;
-    private int returnStatus;
+    private String userId;
+    private String returnTime;
+    private int loanId;
 
     public String getLoanTime() {
         return loanTime;
@@ -30,31 +28,27 @@ public class Loan {
         this.bookId = bookId;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public Date getReturnTime() {
+    public String getReturnTime() {
         return returnTime;
     }
 
-    public void setReturnTime(Date returnTime) {
+    public void setReturnTime(String returnTime) {
         this.returnTime = returnTime;
     }
 
-    public int getReturnStatus() {
-        return returnStatus;
+    public int getLoanId() {
+        return loanId;
     }
 
-    public void setReturnStatus(int returnStatus) {
-        this.returnStatus = returnStatus;
+    public void setLoanId(int loanId) {
+        this.loanId = loanId;
     }
-
-
-
-
 }

@@ -1,6 +1,5 @@
 package com.fdd.lms.dao;
 
-import com.fdd.lms.Model.Loan;
 import com.fdd.lms.Model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -19,7 +18,7 @@ public interface UserDAO {
     String SELECT_FIELDS = " user_id, user_name, user_pw ";
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where user_id=#{id}"})
-    User selectUserById(int id);
+    User selectUserById(String id);
 
     @Insert({"insert into ", TABLE_NAME, "(", INSET_FIELDS,
             ") values (#{userId},#{userName},#{userPw})"})

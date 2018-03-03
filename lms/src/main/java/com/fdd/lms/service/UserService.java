@@ -15,7 +15,7 @@ public class UserService {
     @Autowired
     UserDAO userDAO;
 
-    public User getUserById(int id){
+    public User getUserById(String id){
         return userDAO.selectUserById(id);
     }
 

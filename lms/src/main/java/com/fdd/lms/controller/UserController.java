@@ -19,6 +19,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    /*
+    *功能：新增用户
+    */
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String newUserForm(){
         return "userForm";
@@ -26,7 +29,12 @@ public class UserController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String newUser(@ModelAttribute User user, ModelMap map){
-        //TBD 重复注册，项目所有创建地方都应该注意
+
+        if(userService.getUserById(user.getUserId()) != null){
+            map.addAttribute("errinfo","改用户已存在，请勿重复注册！");
+            return "errorinfo";
+        }
+
         if(user.getUserName() == null){
             user.setUserName(user.getUserId());
         }

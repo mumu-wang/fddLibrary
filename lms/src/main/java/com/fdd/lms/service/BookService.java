@@ -15,6 +15,10 @@ public class BookService {
     @Autowired
     private BookDAO bookDAO;
 
+    public void addBook(Book book){
+        bookDAO.insertBook(book);
+    }
+
     public Book getBookById(int id) {
         return bookDAO.selectBookById(id);
     }
@@ -23,12 +27,24 @@ public class BookService {
         return bookDAO.selectAll();
     }
 
-    public void addBook(Book book){
-        bookDAO.insertBook(book);
+    public Book getBookByIdAndStatus(int bookId,int bookStatus){
+        return bookDAO.selectBookByIdAndStatus(bookId,bookStatus);
+    }
+
+    public Book getBookByIdAndDel(int bookId, int bookDel){
+        return bookDAO.selectBookByIdAndDel(bookId,bookDel);
     }
 
     public void updateBook(Book book){
         bookDAO.updateBook(book);
+    }
+
+    public void updateBookStatus(int bookId,int bookStatus){
+        bookDAO.updateBookStatus(bookId,bookStatus);
+    }
+
+    public void updateBookDel(int bookId,int bookDel){
+        bookDAO.updateBookDel(bookId,bookDel);
     }
 
 }

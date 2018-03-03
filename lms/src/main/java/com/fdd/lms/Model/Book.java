@@ -12,11 +12,7 @@ public class Book {
     private String bookCg;
     private String bookPos;
     private String bookPre;
-    private int bookStatus;
-
-    public Book() {
-
-    }
+    private int bookStatus; //0:借出 1:在库
 
     public int getBookId() {
         return bookId;
