@@ -18,8 +18,17 @@ public class LoanService {
     @Autowired
     BookDAO bookDAO;
 
-    public void loanBook(Loan loan){
+    public void loanBook(Loan loan) {
         loanDAO.insertLoan(loan);
-        bookDAO.updateBookStatus(loan.getBookId(),0);
+        bookDAO.updateBookStatus(loan.getBookId(), 0);
     }
+
+    public Loan selectLoan(int bookId) {
+        return loanDAO.selectLoanById(bookId);
+    }
+
+    public Loan selectNotFinish(int bookId) {
+        return loanDAO.selectNotFinishLoanById(bookId);
+    }
+
 }

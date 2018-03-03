@@ -26,25 +26,26 @@ public class LoanController {
     BookService bookService;
     @Autowired
     UserService userServic;
+
     /*
-    *功能：借书
-    */
+     *功能：借书
+     */
     @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public String newLoanForm(){
+    public String newLoanForm() {
         return "loanForm";
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String newLoan(@ModelAttribute Loan loan,ModelMap map) {
+    public String newLoan(@ModelAttribute Loan loan, ModelMap map) {
 
-        if(bookService.getBookById(loan.getBookId()) == null){
-            map.addAttribute("errinfo","该图书不存在，请检查图书编号是否正确！");
+        if (bookService.getBookById(loan.getBookId()) == null) {
+            map.addAttribute("errinfo", "该图书不存在，请检查图书编号是否正确！");
             return "errorInfo";
-        }else if(userServic.getUserById(loan.getUserId()) == null){
-            map.addAttribute("errinfo","该用户不存在，请检查用户编号是否正确！");
+        } else if (userServic.getUserById(loan.getUserId()) == null) {
+            map.addAttribute("errinfo", "该用户不存在，请检查用户编号是否正确！");
             return "errorInfo";
-        }else if(bookService.getBookByIdAndStatus(loan.getBookId(),1) == null){
-            map.addAttribute("errinfo","改图书已经借出！");
+        } else if (bookService.getBookByIdAndStatus(loan.getBookId(), 1) == null) {
+            map.addAttribute("errinfo", "改图书已经借出！");
             return "errorinfo";
         }
         loanService.loanBook(loan);
@@ -52,24 +53,24 @@ public class LoanController {
     }
 
     /*
-    *功能：还书
-    */
+     *功能：还书
+     */
     @RequestMapping(value = "/return", method = RequestMethod.GET)
-    public String returnBookForm(){
+    public String returnBookForm() {
         return "returnForm";
     }
 
     @RequestMapping(value = "/return", method = RequestMethod.POST)
-    public String returnBook(@ModelAttribute Loan loan,ModelMap map) {
+    public String returnBook(@ModelAttribute Loan loan, ModelMap map) {
 
-        if(bookService.getBookById(loan.getBookId()) == null){
-            map.addAttribute("errinfo","该图书不存在，请检查图书编号是否正确！");
+        if (bookService.getBookById(loan.getBookId()) == null) {
+            map.addAttribute("errinfo", "该图书不存在，请检查图书编号是否正确！");
             return "errorInfo";
-        }else if(bookService.getBookByIdAndStatus(loan.getBookId(),0) == null) {
+        } else if (bookService.getBookByIdAndStatus(loan.getBookId(), 0) == null) {
             map.addAttribute("errinfo", "该图书已经归还！");
             return "errorInfo";
-        }else{
-            bookService.updateBookStatus(loan.getBookId(),1);
+        } else {
+            bookService.updateBookStatus(loan.getBookId(), 1);
             return "redirect:/";
         }
     }

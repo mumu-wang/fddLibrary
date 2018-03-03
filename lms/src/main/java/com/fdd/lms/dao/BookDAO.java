@@ -6,6 +6,7 @@ package com.fdd.lms.dao;
 
 import com.fdd.lms.Model.Book;
 import org.apache.ibatis.annotations.*;
+
 import java.util.List;
 
 @Mapper
@@ -22,7 +23,7 @@ public interface BookDAO {
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where book_id=#{bookId} and book_del = 0"})
     Book selectBookById(@Param("bookId") int bookId);
 
-    @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME," where book_del = 0"})
+    @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where book_del = 0"})
     List<Book> selectAll();
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where book_id=#{bookId} and book_status = #{bookStatus} and book_del = 0"})
@@ -39,12 +40,12 @@ public interface BookDAO {
     void updateBook(Book book);
 
     @Update({"update ", TABLE_NAME, " set book_status = #{bookStatus} where book_id=#{bookId}"})
-    void updateBookStatus(@Param("bookId")int bookId,
-                          @Param("bookStatus")int bookStatus);
+    void updateBookStatus(@Param("bookId") int bookId,
+                          @Param("bookStatus") int bookStatus);
 
     @Update({"update ", TABLE_NAME, " set book_del = #{bookDel} where book_id=#{bookId}"})
-    void updateBookDel(@Param("bookId")int bookId,
-                       @Param("bookDel")int bookDel);
+    void updateBookDel(@Param("bookId") int bookId,
+                       @Param("bookDel") int bookDel);
 
 
 //

@@ -20,25 +20,25 @@ public class UserController {
     UserService userService;
 
     /*
-    *功能：新增用户
-    */
+     *功能：新增用户
+     */
     @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public String newUserForm(){
+    public String newUserForm() {
         return "userForm";
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String newUser(@ModelAttribute User user, ModelMap map){
+    public String newUser(@ModelAttribute User user, ModelMap map) {
 
-        if(userService.getUserById(user.getUserId()) != null){
-            map.addAttribute("errinfo","改用户已存在，请勿重复注册！");
+        if (userService.getUserById(user.getUserId()) != null) {
+            map.addAttribute("errinfo", "改用户已存在，请勿重复注册！");
             return "errorinfo";
         }
 
-        if(user.getUserName() == null){
+        if (user.getUserName() == null) {
             user.setUserName(user.getUserId());
         }
-        if(user.getUserPw() == null){
+        if (user.getUserPw() == null) {
             user.setUserPw(user.getUserId());
         }
         userService.addUser(user);

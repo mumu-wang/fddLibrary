@@ -15,11 +15,11 @@ public class UserService {
     @Autowired
     UserDAO userDAO;
 
-    public User getUserById(String id){
+    public User getUserById(String id) {
         return userDAO.selectUserById(id);
     }
 
-    public void addUser(User user){
+    public void addUser(User user) {
         userDAO.insertUser(user);
     }
 }

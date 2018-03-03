@@ -1,4 +1,5 @@
 package com.fdd.lms.Model;
+
 /**
  * @author Lin.wang
  * @date 2018-02-26 21:59.
@@ -13,6 +14,15 @@ public class Book {
     private String bookPos;
     private String bookPre;
     private int bookStatus; //0:借出 1:在库
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public int getBookId() {
         return bookId;

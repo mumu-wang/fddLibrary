@@ -1,49 +1,54 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-    <head>
-        <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
-        <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
-        <link th:href="@{/css/default.css}" rel="stylesheet"/>
-        <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
-        <meta charset="UTF-8"/>
-        <title>图书列表</title>
-    </head>
+<head>
+    <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+    <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+    <meta charset="UTF-8"/>
+    <title>图书列表</title>
+</head>
 
-    <body>
+<body>
 
-        <div class="contentDiv">
+<div class="contentDiv">
 
-            <h4>FDD西安开发部图书馆</h4><br/>
-            <div><a class="btn btn-primary" href="/books/create" role="button">添加图书</a></div><br/>
+    <h4>FDD西安开发部图书馆</h4><br/>
+    <div>
+        <a class="btn btn-primary" href="/books/create" role="button">添加图书</a>&nbsp;&nbsp;
+        <input class="btn" type="button" value="返回" onclick="history.back()"/>
+    </div>
 
-            <table class="table table-hover table-condensed">
-                <legend>
-                    <strong>图书列表</strong>
-                </legend>
-                <thead>
-                    <tr>
-                        <th>图书编号</th>
-                        <th>书名</th>
-                        <th>ISBN</th>
-                        <th>分类</th>
-                        <th>位置</th>
-                        <th>出版社</th>
-                        <th>借阅状态</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="book : ${bookList}">
-                        <td th:text="${book.bookId}"></td>
-                        <td><a th:href="@{/books/update/{bookId}(bookId=${book.bookId})}" th:text="${book.bookName}"></a></td>
-                        <td th:text="${book.bookIsbn}"></td>
-                        <td th:text="${book.bookCg}"></td>
-                        <td th:text="${book.bookPos}"></td>
-                        <td th:text="${book.bookPre}"></td>
-                        <td th:text="${book.bookStatus}"></td>
-                        <td><a class="btn btn-danger" th:href="@{/books/delete/{bookId}(bookId=${book.bookId})}">删除</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </body>
+    <br/>
+
+    <table class="table table-hover table-condensed">
+        <legend>
+            <strong>图书列表</strong>
+        </legend>
+        <thead>
+        <tr>
+            <th>图书编号</th>
+            <th>书名</th>
+            <th>ISBN</th>
+            <th>分类</th>
+            <th>位置</th>
+            <th>出版社</th>
+            <th>借阅状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${bookList}">
+            <td th:text="${book.bookId}"></td>
+            <td><a th:href="@{/books/update/{bookId}(bookId=${book.bookId})}" th:text="${book.bookName}"></a></td>
+            <td th:text="${book.bookIsbn}"></td>
+            <td th:text="${book.bookCg}"></td>
+            <td th:text="${book.bookPos}"></td>
+            <td th:text="${book.bookPre}"></td>
+            <td><a th:href="@{/books/status/{bookId}(bookId=${book.bookId})}" th:text="${book.status}"></a></td>
+            <td><a class="btn btn-danger" th:href="@{/books/delete/{bookId}(bookId=${book.bookId})}">删除</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
 </html>
