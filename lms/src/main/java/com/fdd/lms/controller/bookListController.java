@@ -8,6 +8,7 @@ import com.fdd.lms.Model.Book;
 import com.fdd.lms.Model.Loan;
 import com.fdd.lms.Model.LoanInfo;
 import com.fdd.lms.Model.User;
+import com.fdd.lms.lmsUtil.LmsUtil;
 import com.fdd.lms.service.BookService;
 import com.fdd.lms.service.LoanService;
 import com.fdd.lms.service.UserService;
@@ -40,15 +41,7 @@ public class BookListController {
     @RequestMapping(method = RequestMethod.GET)
     public String getBookList(ModelMap map) {
         List<Book> bookList = bookService.getAllBook();
-        for (Book book : bookList) {
-            if (book.getBookStatus() == 0) {
-                book.setStatus("已借出");
-            } else if (book.getBookStatus() == 1) {
-                book.setStatus("在库");
-            } else {
-                book.setStatus("状态有误");
-            }
-        }
+        bookList = LmsUtil.transformationBookStatus(bookList);
         map.addAttribute("bookList", bookList);
         return "bookList";
     }

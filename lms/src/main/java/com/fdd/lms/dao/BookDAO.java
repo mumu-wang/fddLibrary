@@ -34,6 +34,9 @@ public interface BookDAO {
     Book selectBookByIdAndDel(@Param("bookId") int bookId,
                               @Param("bookDel") int bookDel);
 
+    @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where book_name like \"%\"#{bookName}\"%\" and book_del = 0 "})
+    List<Book> selectByFuzzyName(@Param("bookName") String bookName);
+
     @Update({"update ", TABLE_NAME, " set book_name=#{bookName}, book_isbn=#{bookIsbn}, " +
             "book_cg=#{bookCg},book_pos=#{bookPos},book_pre=#{bookPre}" +
             " where book_id=#{bookId}"})

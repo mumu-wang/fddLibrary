@@ -28,6 +28,10 @@ public class BookService {
         return bookDAO.selectAll();
     }
 
+    public List<Book> getBookByFuzzyName(String bookName) {
+        return bookDAO.selectByFuzzyName(bookName);
+    }
+
     public Book getBookByIdAndStatus(int bookId, int bookStatus) {
         return bookDAO.selectBookByIdAndStatus(bookId, bookStatus);
     }
