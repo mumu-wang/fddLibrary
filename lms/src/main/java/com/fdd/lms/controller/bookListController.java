@@ -113,7 +113,7 @@ public class BookListController {
         if (book == null) {
             return "redirect:/books";
         }
-        Loan loan = loanService.selectNotFinish(book.getBookId());
+        Loan loan = loanService.selectNotFinishByBookId(book.getBookId());
         if (loan == null) {
             map.addAttribute("loanInfo", loanInfo);
             return "loanInfo";

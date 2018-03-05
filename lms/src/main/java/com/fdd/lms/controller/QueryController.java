@@ -1,6 +1,8 @@
 package com.fdd.lms.controller;
 
 import com.fdd.lms.Model.Book;
+import com.fdd.lms.Model.Loan;
+import com.fdd.lms.Model.LoanInfo;
 import com.fdd.lms.Model.User;
 import com.fdd.lms.lmsUtil.LmsUtil;
 import com.fdd.lms.service.BookService;
@@ -29,6 +31,8 @@ public class QueryController {
     LoanService loanService;
     @Autowired
     UserService userService;
+    @Autowired
+    List<LoanInfo> loanInfo;
 
     /*
      *功能：图书查询
@@ -58,8 +62,23 @@ public class QueryController {
     @RequestMapping(value = "user", method = RequestMethod.POST)
     public String queryUserResult(@ModelAttribute User user, ModelMap map) {
         //TBD 用户信息和用户借阅信息
-        return "bookList";
+        List<Loan> listLoan = loanService.selectNotFinishByUserId(user.getUserId());
+        if(listLoan != null) {
+            loanInfo.clear();
+            for(Loan loan  : listLoan){
+                LoanInfo ln = new LoanInfo();
+                ln.setUserId(loan.getUserId());
+                ln.setLoanTime(loan.getLoanTime());
+                ln.setBookId(loan.getBookId());
+                loanInfo.add(ln);
+            }
+            map.addAttribute("loanInfo",loanInfo);
+        }
+
+
+        return "loanInfo";
     }
+
 
 
 }
