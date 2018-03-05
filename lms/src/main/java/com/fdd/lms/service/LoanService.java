@@ -23,8 +23,12 @@ public class LoanService {
         bookDAO.updateBookStatus(loan.getBookId(), 0);
     }
 
-    public Loan selectLoan(int bookId) {
-        return loanDAO.selectLoanById(bookId);
+//    public Loan selectLoan(int bookId) {
+//        return loanDAO.selectLoanById(bookId);
+//    }
+
+    public void returnBook(int bookId){
+        loanDAO.updateFinishStatusById(bookId);
     }
 
     public Loan selectNotFinish(int bookId) {

@@ -71,6 +71,7 @@ public class LoanController {
             return "errorInfo";
         } else {
             bookService.updateBookStatus(loan.getBookId(), 1);
+            loanService.returnBook(loan.getBookId());
             return "redirect:/";
         }
     }
