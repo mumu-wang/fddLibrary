@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <label for="book_id" class="col-sm-2 control-label">图书编号:</label>
                     <div class="col-xs-4">
-                        <input type="text" class="form-control" id="book_id" placeholder="编号" name="bookId" required="required" />
+                        <input type="text" class="form-control" id="book_id" placeholder="编号" name="bookId" th:value="${book.bookId}" required="required" />
                     </div>
                 </div>
 
@@ -31,6 +31,13 @@
                     <label for="book_name" class="col-sm-2 control-label">书名:</label>
                     <div class="col-xs-4">
                         <input type="text" class="form-control" id="book_name" placeholder="书名" name="bookName" th:value="${book.bookName}"  required="required" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="book_author" class="col-sm-2 control-label">作者:</label>
+                    <div class="col-xs-4">
+                        <input type="text" class="form-control" id="book_author" placeholder="作者" name="bookAuthor" th:value="${book.bookAuthor}"  required="required" />
                     </div>
                 </div>
 

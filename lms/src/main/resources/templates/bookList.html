@@ -29,6 +29,7 @@
         <tr>
             <th>图书编号</th>
             <th>书名</th>
+            <th>作者</th>
             <th>ISBN</th>
             <th>分类</th>
             <th>位置</th>
@@ -40,6 +41,7 @@
         <tr th:each="book : ${bookList}">
             <td th:text="${book.bookId}"></td>
             <td><a th:href="@{/books/update/{bookId}(bookId=${book.bookId})}" th:text="${book.bookName}"></a></td>
+            <td th:text="${book.bookAuthor}"></td>
             <td th:text="${book.bookIsbn}"></td>
             <td th:text="${book.bookCg}"></td>
             <td th:text="${book.bookPos}"></td>

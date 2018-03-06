@@ -9,6 +9,7 @@ public class Book {
 
     private int bookId;
     private String bookName;
+    private String bookAuthor;
     private String bookIsbn;
     private String bookCg;
     private String bookPos;
@@ -38,6 +39,14 @@ public class Book {
 
     public void setBookName(String bookName) {
         this.bookName = bookName;
+    }
+
+    public String getBookAuthor() {
+        return bookAuthor;
+    }
+
+    public void setBookAuthor(String bookAuthor) {
+        this.bookAuthor = bookAuthor;
     }
 
     public String getBookIsbn() {

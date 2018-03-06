@@ -13,11 +13,11 @@ import java.util.List;
 public interface BookDAO {
 
     String TABLE_NAME = " bookinfo ";
-    String INSET_FIELDS = " book_id, book_name, book_isbn, book_cg, book_pos, book_pre";
-    String SELECT_FIELDS = " book_id, book_name, book_isbn, book_cg, book_pos, book_pre, book_status";
+    String INSET_FIELDS = " book_id, book_name, book_author, book_isbn, book_cg, book_pos, book_pre";
+    String SELECT_FIELDS = " book_id, book_name, book_author,book_isbn, book_cg, book_pos, book_pre, book_status";
 
     @Insert({"insert into ", TABLE_NAME, "(", INSET_FIELDS,
-            ") values (#{bookId},#{bookName},#{bookIsbn},#{bookCg},#{bookPos},#{bookPre})"})
+            ") values (#{bookId},#{bookName},#{bookAuthor},#{bookIsbn},#{bookCg},#{bookPos},#{bookPre})"})
     int insertBook(Book book);
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where book_id=#{bookId} and book_del = 0"})
