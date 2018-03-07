@@ -28,21 +28,21 @@ public class LoanService {
         bookDAO.updateBookStatus(loan.getBookId(), 0);
     }
 
-//    public Loan selectLoan(int bookId) {
+//    public Loan selectLoan(String bookId) {
 //        return loanDAO.selectLoanById(bookId);
 //    }
 
     /*
     *功能：还书
     */
-    public void returnBook(int bookId){
+    public void returnBook(String bookId){
         loanDAO.updateFinishStatusById(bookId);
     }
 
     /*
     *功能：通过图书ID查找未归还图书
     */
-    public Loan selectNotFinishByBookId(int bookId) {
+    public Loan selectNotFinishByBookId(String bookId) {
         return loanDAO.selectNotFinishLoanByBookId(bookId);
     }
 

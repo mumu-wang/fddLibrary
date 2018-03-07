@@ -21,16 +21,16 @@ public interface LoanDAO {
     int insertLoan(Loan loan);
 
 //    @Select({"select ", SELECT_FIELDS, " from ", TABLE_LOAN, " where book_id=#{bookId}"})
-//    Loan selectLoanById(@Param("bookId") int bookId);
+//    Loan selectLoanById(@Param("bookId") String bookId);
 
 //    @Select({"select ", SELECT_FIELDS, " from ", TABLE_LOAN, " where book_id=#{bookId} order by loan_id desc limit 0,1;"})
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_LOAN, " where book_id=#{bookId} and loan_finish = 0"})
-    Loan selectNotFinishLoanByBookId(@Param("bookId") int bookId);
+    Loan selectNotFinishLoanByBookId(@Param("bookId") String bookId);
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_LOAN, " where user_id=#{userId} and loan_finish = 0"})
     List<Loan> selectNotFinishLoanByUserId(@Param("userId") String userId);
 
     @Update({"update ",TABLE_LOAN," set loan_finish = 1 where book_id=#{bookId} "})
-    void updateFinishStatusById(@Param("bookId") int bookId);
+    void updateFinishStatusById(@Param("bookId") String bookId);
 
 }

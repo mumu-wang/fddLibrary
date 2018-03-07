@@ -75,7 +75,7 @@ public class BookListController {
      *功能：修改图书
      */
     @RequestMapping(value = "/update/{bookId}", method = RequestMethod.GET)
-    public String getBook(@PathVariable int bookId, ModelMap map) {
+    public String getBook(@PathVariable String bookId, ModelMap map) {
         map.addAttribute("book", bookService.getBookById(bookId));
         map.addAttribute("action", "update");
         return "bookForm";
@@ -91,7 +91,7 @@ public class BookListController {
      *功能：删除图书
      */
     @RequestMapping(value = "/delete/{bookId}", method = RequestMethod.GET)
-    public String delBook(@PathVariable int bookId, ModelMap map) {
+    public String delBook(@PathVariable String bookId, ModelMap map) {
         if (bookService.getBookById(bookId) == null) {
             map.addAttribute("errinfo", "改图书不存在，无法删除！");
             return "errorinfo";
@@ -108,7 +108,7 @@ public class BookListController {
      *功能：图书状态查询
      */
     @RequestMapping(value = "/status/{bookId}", method = RequestMethod.GET)
-    public String bookStatusList(@PathVariable int bookId, ModelMap map) {
+    public String bookStatusList(@PathVariable String bookId, ModelMap map) {
         Book book = bookService.getBookByIdAndStatus(bookId, 0);
         if (book == null) {
             return "redirect:/books";

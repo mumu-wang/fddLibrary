@@ -21,17 +21,17 @@ public interface BookDAO {
     int insertBook(Book book);
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where book_id=#{bookId} and book_del = 0"})
-    Book selectBookById(@Param("bookId") int bookId);
+    Book selectBookById(@Param("bookId") String bookId);
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where book_del = 0"})
     List<Book> selectAll();
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where book_id=#{bookId} and book_status = #{bookStatus} and book_del = 0"})
-    Book selectBookByIdAndStatus(@Param("bookId") int bookId,
+    Book selectBookByIdAndStatus(@Param("bookId") String bookId,
                                  @Param("bookStatus") int bookStatus);
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where book_id=#{bookId} and book_del = #{bookDel}"})
-    Book selectBookByIdAndDel(@Param("bookId") int bookId,
+    Book selectBookByIdAndDel(@Param("bookId") String bookId,
                               @Param("bookDel") int bookDel);
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where book_name like \"%\"#{bookName}\"%\" and book_del = 0 "})
@@ -43,11 +43,11 @@ public interface BookDAO {
     void updateBook(Book book);
 
     @Update({"update ", TABLE_NAME, " set book_status = #{bookStatus} where book_id=#{bookId}"})
-    void updateBookStatus(@Param("bookId") int bookId,
+    void updateBookStatus(@Param("bookId") String bookId,
                           @Param("bookStatus") int bookStatus);
 
     @Update({"update ", TABLE_NAME, " set book_del = #{bookDel} where book_id=#{bookId}"})
-    void updateBookDel(@Param("bookId") int bookId,
+    void updateBookDel(@Param("bookId") String bookId,
                        @Param("bookDel") int bookDel);
 
 

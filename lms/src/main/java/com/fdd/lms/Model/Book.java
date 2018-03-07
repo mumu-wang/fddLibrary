@@ -7,7 +7,7 @@ package com.fdd.lms.Model;
 
 public class Book {
 
-    private int bookId;
+    private String bookId;
     private String bookName;
     private String bookAuthor;
     private String bookIsbn;
@@ -25,11 +25,11 @@ public class Book {
         this.status = status;
     }
 
-    public int getBookId() {
+    public String getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(String bookId) {
         this.bookId = bookId;
     }
 

@@ -8,17 +8,17 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class LoanInfo {
-    private int bookId;
+    private String bookId;
     private String bookName;
     private String userId;
     private String userName;
     private String loanTime;
 
-    public int getBookId() {
+    public String getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(String bookId) {
         this.bookId = bookId;
     }
 

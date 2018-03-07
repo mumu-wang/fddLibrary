@@ -20,7 +20,7 @@ public class BookService {
         bookDAO.insertBook(book);
     }
 
-    public Book getBookById(int id) {
+    public Book getBookById(String id) {
         return bookDAO.selectBookById(id);
     }
 
@@ -32,11 +32,11 @@ public class BookService {
         return bookDAO.selectByFuzzyName(bookName);
     }
 
-    public Book getBookByIdAndStatus(int bookId, int bookStatus) {
+    public Book getBookByIdAndStatus(String bookId, int bookStatus) {
         return bookDAO.selectBookByIdAndStatus(bookId, bookStatus);
     }
 
-    public Book getBookByIdAndDel(int bookId, int bookDel) {
+    public Book getBookByIdAndDel(String bookId, int bookDel) {
         return bookDAO.selectBookByIdAndDel(bookId, bookDel);
     }
 
@@ -44,11 +44,11 @@ public class BookService {
         bookDAO.updateBook(book);
     }
 
-    public void updateBookStatus(int bookId, int bookStatus) {
+    public void updateBookStatus(String bookId, int bookStatus) {
         bookDAO.updateBookStatus(bookId, bookStatus);
     }
 
-    public void updateBookDel(int bookId, int bookDel) {
+    public void updateBookDel(String bookId, int bookDel) {
         bookDAO.updateBookDel(bookId, bookDel);
     }
 

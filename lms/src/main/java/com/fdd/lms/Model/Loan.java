@@ -7,7 +7,7 @@ package com.fdd.lms.Model;
  */
 public class Loan {
     private String loanTime;
-    private int bookId;
+    private String bookId;
     private String userId;
     private String returnTime;
     private int loanId;
@@ -20,11 +20,11 @@ public class Loan {
         this.loanTime = loanTime;
     }
 
-    public int getBookId() {
+    public String getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(String bookId) {
         this.bookId = bookId;
     }
 
