@@ -43,14 +43,13 @@
         <tbody id="booksTable">
         <tr id="tr02" th:each="book : ${bookList}">
             <td th:text="${book.bookId}"></td>
-            <td><a th:href="@{/admin/books/update/{bookId}(bookId=${book.bookId})}" th:text="${book.bookName}"></a></td>
+            <td th:text="${book.bookName}"></td>
             <td th:text="${book.bookAuthor}"></td>
             <td th:text="${book.bookIsbn}"></td>
             <td th:text="${book.bookCg}"></td>
             <td th:text="${book.bookPos}"></td>
             <td th:text="${book.bookPre}"></td>
             <td><a th:href="@{/admin/books/status/{bookId}(bookId=${book.bookId})}" th:text="${book.status}"></a></td>
-            <td><a class="btn btn-danger" th:href="@{/admin/books/delete/{bookId}(bookId=${book.bookId})}">删除</a></td>
         </tr>
         </tbody>
     </table>

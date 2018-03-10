@@ -59,11 +59,11 @@ public class BookListController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String addBookList(@ModelAttribute Book book, ModelMap map) {
         if (bookService.getBookById(book.getBookId()) != null) {
-            map.addAttribute("errinfo", "改图书编号已经存在，请勿重复添加！");
+            map.addAttribute("errinfo", "该图书编号已经存在，请勿重复添加！");
             return "errorinfo";
         }
         if (bookService.getBookByIdAndDel(book.getBookId(), 1) != null) {
-            map.addAttribute("errinfo", "改图编号已经删除，无法再次添加！");
+            map.addAttribute("errinfo", "该图编号已经删除，无法再次添加！");
             return "errorinfo";
         }
 
@@ -93,7 +93,7 @@ public class BookListController {
     @RequestMapping(value = "/delete/{bookId}", method = RequestMethod.GET)
     public String delBook(@PathVariable String bookId, ModelMap map) {
         if (bookService.getBookById(bookId) == null) {
-            map.addAttribute("errinfo", "改图书不存在，无法删除！");
+            map.addAttribute("errinfo", "该图书不存在，无法删除！");
             return "errorinfo";
         } else if (bookService.getBookByIdAndDel(bookId, 1) != null) {
             map.addAttribute("errinfo", "图书已经删除，无法再次删除！");

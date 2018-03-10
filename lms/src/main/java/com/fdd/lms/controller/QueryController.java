@@ -67,14 +67,21 @@ public class QueryController {
             loanInfo.clear();
             for(Loan loan  : listLoan){
                 LoanInfo ln = new LoanInfo();
-                ln.setUserId(loan.getUserId());
+                String bookId = loan.getBookId();
+                String userId = loan.getUserId();
+                ln.setUserId(userId);
                 ln.setLoanTime(loan.getLoanTime());
-                ln.setBookId(loan.getBookId());
+                ln.setBookId(bookId);
+                //bookname
+                Book book = bookService.getBookById(bookId);
+                ln.setBookName(book.getBookName());
+                //username
+                User ur = userService.getUserById(userId);
+                ln.setUserName(ur.getUserName());
                 loanInfo.add(ln);
             }
             map.addAttribute("loanInfo",loanInfo);
         }
-
 
         return "loanInfo";
     }

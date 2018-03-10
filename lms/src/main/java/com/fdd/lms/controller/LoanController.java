@@ -45,7 +45,7 @@ public class LoanController {
             map.addAttribute("errinfo", "该用户不存在，请检查用户编号是否正确！");
             return "errorInfo";
         } else if (bookService.getBookByIdAndStatus(loan.getBookId(), 1) == null) {
-            map.addAttribute("errinfo", "改图书已经借出！");
+            map.addAttribute("errinfo", "该图书已经借出！");
             return "errorinfo";
         }
         loanService.loanBook(loan);
