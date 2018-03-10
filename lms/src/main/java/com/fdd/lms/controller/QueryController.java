@@ -23,7 +23,7 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping(value = "/query")
+@RequestMapping(value = "/admin/query")
 public class QueryController {
     @Autowired
     BookService bookService;

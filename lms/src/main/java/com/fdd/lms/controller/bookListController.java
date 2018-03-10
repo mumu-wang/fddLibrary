@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/books")
+@RequestMapping(value = "/admin/books")
 public class BookListController {
 
     @Autowired
@@ -68,7 +68,7 @@ public class BookListController {
         }
 
         bookService.addBook(book);
-        return "redirect:/";
+        return "redirect:/admin";
     }
 
     /*
@@ -84,7 +84,7 @@ public class BookListController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String putBook(@ModelAttribute Book book) {
         bookService.updateBook(book);
-        return "redirect:/";
+        return "redirect:/admin";
     }
 
     /*
@@ -101,7 +101,7 @@ public class BookListController {
         }
 
         bookService.updateBookDel(bookId, 1);
-        return "redirect:/books";
+        return "redirect:/admin/books";
     }
 
     /*
@@ -111,7 +111,7 @@ public class BookListController {
     public String bookStatusList(@PathVariable String bookId, ModelMap map) {
         Book book = bookService.getBookByIdAndStatus(bookId, 0);
         if (book == null) {
-            return "redirect:/books";
+            return "redirect:/admin/books";
         }
         Loan loan = loanService.selectNotFinishByBookId(book.getBookId());
         if (loan == null) {

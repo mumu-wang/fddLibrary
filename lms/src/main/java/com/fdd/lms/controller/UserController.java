@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @date 2018-03-02 23:16.
  */
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/admin/user")
 public class UserController {
     @Autowired
     UserService userService;
@@ -42,7 +42,7 @@ public class UserController {
             user.setUserPw(user.getUserId());
         }
         userService.addUser(user);
-        return "redirect:/";
+        return "redirect:/admin";
     }
 
 }

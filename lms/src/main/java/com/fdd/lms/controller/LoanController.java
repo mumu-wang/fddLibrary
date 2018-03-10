@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 
 @Controller
-@RequestMapping(value = "/loan")
+@RequestMapping(value = "/admin/loan")
 public class LoanController {
 
     @Autowired
@@ -49,7 +49,7 @@ public class LoanController {
             return "errorinfo";
         }
         loanService.loanBook(loan);
-        return "redirect:/";
+        return "redirect:/admin";
     }
 
     /*
@@ -72,7 +72,7 @@ public class LoanController {
         } else {
             bookService.updateBookStatus(loan.getBookId(), 1);
             loanService.returnBook(loan.getBookId());
-            return "redirect:/";
+            return "redirect:/admin";
         }
     }
 
