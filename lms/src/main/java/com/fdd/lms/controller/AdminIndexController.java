@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AdminIndexController {
 
     /*
-    *功能：管理员首页
-    */
+     *功能：管理员首页
+     */
     @RequestMapping(method = RequestMethod.GET)
-    public String intoAdminIndex(){
+    public String intoAdminIndex() {
         return "adminIndex";
     }
 }

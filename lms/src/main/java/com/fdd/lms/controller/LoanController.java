@@ -46,7 +46,7 @@ public class LoanController {
             return "errorInfo";
         } else if (bookService.getBookByIdAndStatus(loan.getBookId(), 1) == null) {
             map.addAttribute("errinfo", "该图书已经借出！");
-            return "errorinfo";
+            return "errorInfo";
         }
         loanService.loanBook(loan);
         return "redirect:/admin";

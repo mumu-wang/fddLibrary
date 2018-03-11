@@ -60,11 +60,11 @@ public class BookListController {
     public String addBookList(@ModelAttribute Book book, ModelMap map) {
         if (bookService.getBookById(book.getBookId()) != null) {
             map.addAttribute("errinfo", "该图书编号已经存在，请勿重复添加！");
-            return "errorinfo";
+            return "errorInfo";
         }
         if (bookService.getBookByIdAndDel(book.getBookId(), 1) != null) {
             map.addAttribute("errinfo", "该图编号已经删除，无法再次添加！");
-            return "errorinfo";
+            return "errorInfo";
         }
 
         bookService.addBook(book);
@@ -94,10 +94,10 @@ public class BookListController {
     public String delBook(@PathVariable String bookId, ModelMap map) {
         if (bookService.getBookById(bookId) == null) {
             map.addAttribute("errinfo", "该图书不存在，无法删除！");
-            return "errorinfo";
+            return "errorInfo";
         } else if (bookService.getBookByIdAndDel(bookId, 1) != null) {
             map.addAttribute("errinfo", "图书已经删除，无法再次删除！");
-            return "errorinfo";
+            return "errorInfo";
         }
 
         bookService.updateBookDel(bookId, 1);

@@ -63,9 +63,9 @@ public class QueryController {
     public String queryUserResult(@ModelAttribute User user, ModelMap map) {
         //TBD 用户信息和用户借阅信息
         List<Loan> listLoan = loanService.selectNotFinishByUserId(user.getUserId());
-        if(listLoan != null) {
+        if (listLoan != null) {
             loanInfo.clear();
-            for(Loan loan  : listLoan){
+            for (Loan loan : listLoan) {
                 LoanInfo ln = new LoanInfo();
                 String bookId = loan.getBookId();
                 String userId = loan.getUserId();
@@ -80,12 +80,10 @@ public class QueryController {
                 ln.setUserName(ur.getUserName());
                 loanInfo.add(ln);
             }
-            map.addAttribute("loanInfo",loanInfo);
+            map.addAttribute("loanInfo", loanInfo);
         }
 
         return "loanInfo";
     }
-
-
 
 }

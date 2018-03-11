@@ -24,16 +24,19 @@ public class UserBookListController {
     BookService bookService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String userQueryBookForm(){
+    public String userQueryBookForm() {
         return "queryBookForm";
     }
 
+    /*
+    *功能：用户图书查询列表，无删除功能
+    */
     @RequestMapping(method = RequestMethod.POST)
-    public String userQueryBookList(ModelMap map,Book book){
+    public String userQueryBookList(ModelMap map, Book book) {
         List<Book> listBook = bookService.getBookByFuzzyName(book.getBookName());
         listBook = LmsUtil.transformationBookStatus(listBook);
         map.addAttribute("bookList", listBook);
-        return "UserBookList";
+        return "userBookList";
     }
 
 

@@ -32,7 +32,7 @@ public class UserController {
 
         if (userService.getUserById(user.getUserId()) != null) {
             map.addAttribute("errinfo", "改用户已存在，请勿重复注册！");
-            return "errorinfo";
+            return "errorInfo";
         }
 
         if (user.getUserName() == null) {
