@@ -48,7 +48,15 @@
             <td th:text="${book.bookCg}"></td>
             <td th:text="${book.bookPos}"></td>
             <td th:text="${book.bookPre}"></td>
-            <td><a th:href="@{/admin/books/status/{bookId}(bookId=${book.bookId})}" th:text="${book.status}"></a></td>
+            <td><a  th:text="${book.status}"
+                    th:if="not ${book.bookStatus}"
+                    th:href="@{/admin/books/status/{bookId}(bookId=${book.bookId})}">
+
+                </a>
+                <a  th:text="${book.status}"
+                    th:if="${book.bookStatus}">
+                </a>
+            </td>
             <td><a class="btn btn-danger" th:href="@{/admin/books/delete/{bookId}(bookId=${book.bookId})}">删除</a></td>
         </tr>
         </tbody>
