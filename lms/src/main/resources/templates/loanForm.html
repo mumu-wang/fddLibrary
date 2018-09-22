@@ -9,7 +9,7 @@
     <title>借书</title>
 </head>
 
-<body>
+<body onload="setDefaultInputDate();">
 <div class="contentDiv">
 
     <h4>FDD西安开发部图书馆 </h4><br/>
@@ -37,7 +37,8 @@
         <div class="form-group">
             <label for="loan_time" class="col-sm-2 control-label">借书日期:</label>
             <div class="col-xs-4">
-                <input type="date" class="form-control" id="loan_time" name="loanTime" required="required"/>
+                <input type="date" value="new Date();" class="form-control" id="loan_time" name="loanTime"
+                       required="required"/>
             </div>
         </div>
 
@@ -49,5 +50,12 @@
         </div>
     </form>
 </div>
+
+<script type="text/javascript">
+    function setDefaultInputDate() {
+        document.getElementById('loan_time').valueAsDate = new Date();
+    }
+</script>
+
 </body>
 </html>
