@@ -25,7 +25,7 @@ public class FddLibConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(adminPassInterceptor);
-        registry.addInterceptor(adminRequireInterceptor).addPathPatterns("/admin/*").excludePathPatterns("/admin/books/status/*");
+        registry.addInterceptor(adminRequireInterceptor).addPathPatterns("/admin/**");
         super.addInterceptors(registry);
     }
 }
