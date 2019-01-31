@@ -33,8 +33,10 @@ public class AdminLoginTests {
         mockMvc = MockMvcBuilders.webAppContextSetup(webContext).build();
     }
 
+	/*
     @Test
     public void adminLoginTest() throws Exception {
+		
         mockMvc.perform(post("/adminLogin").contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("adminId", "admin")
                 .param("adminPw","123;"))
@@ -62,5 +64,6 @@ public class AdminLoginTests {
 
 
     }
+	*/
 
 }
