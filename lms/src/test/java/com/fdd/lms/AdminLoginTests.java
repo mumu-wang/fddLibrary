@@ -33,6 +33,10 @@ public class AdminLoginTests {
         mockMvc = MockMvcBuilders.webAppContextSetup(webContext).build();
     }
 
+    @Test
+    public void adminLoginTest(){
+
+    }
 	/*
     @Test
     public void adminLoginTest() throws Exception {
